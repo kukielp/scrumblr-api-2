@@ -2,13 +2,12 @@
 const express = require('express')
 const app = express()
 const router = express.Router()
-const bodyParser = require('body-parser')
 const LorenIpsum = require('lorem-ipsum').loremIpsum
 const port = 3000
 const { uuid } = require('uuidv4')
 
-router.use(bodyParser.json())
-router.use(bodyParser.urlencoded({extended: true}))
+router.use(express.json())
+router.use(express.urlencoded({extended: true}))
 
 let DevCop = []
 
@@ -101,6 +100,10 @@ router.post('/board/:boardId/note',async(req, res) => {
     }
 })
 
-app.listen(port);
-  
+app.use('/', router)
+
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+})
+
 module.exports = app;
