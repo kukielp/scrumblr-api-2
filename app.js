@@ -1,11 +1,11 @@
+'use strict'
 const express = require('express')
 const app = express()
 const router = express.Router()
 const bodyParser = require('body-parser')
-const LorenIpsum = require('lorem-Ipsum').loremIpsum
+const LorenIpsum = require('lorem-ipsum').loremIpsum
 const port = 3000
 const { uuid } = require('uuidv4')
-const { stringify } = require('uuid')
 
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({extended: true}))
